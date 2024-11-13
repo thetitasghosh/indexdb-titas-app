@@ -3,6 +3,7 @@ import React from "react";
 import { Label } from "../ui/label";
 import IndexDB from "@/db/IndexDB";
 import { Input } from "../ui/input";
+import { toast } from "sonner";
 import { delay } from "@/lib/utils";
 import SubmitButton from "@/components/Buttons/submit-button";
 import { Textarea } from "../ui/textarea";
@@ -15,7 +16,7 @@ const addTodoForm = () => {
 
     await delay(1000);
     await IndexDB.todos.add({ id, name, text, checked });
-    alert("Added new Thought of yours");
+    toast("Added new Thought of yours");
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,7 +28,7 @@ const addTodoForm = () => {
     <form
       // action={CreateTodo}
       onSubmit={handleSubmit}
-      className="w-full h-full flex-col  px-5 flex items-center justify-center gap-5"
+      className="flex h-full w-full flex-col items-center justify-center gap-5 px-5"
     >
       <div className="w-full">
         <Label htmlFor="name" className="pl-2">

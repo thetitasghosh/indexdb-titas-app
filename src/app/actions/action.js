@@ -6,7 +6,7 @@ export async function CreateTodo(formData) {
   let text = formData.get("text");
   let checked = false;
   let id = Date.now() + "-" + Math.floor(Math.random() * 10000);
-  await delay(1000);
+  await delay(5000);
   await IndexDB.todos.add({ id, name, text, checked });
   alert("Add new Thoughts of your's");
 }
